@@ -15,11 +15,18 @@ function Languages() {
       <div
         className={
           open
-            ? "inline-flex h-[34px] w-[34px] justify-center items-center rounded-full bg-gray-900 text-gray-400 dark:text-black cursor-pointer dark:bg-yellow-500 dark:hover:bg-yellow-400"
-            : "inline-flex h-[34px] w-[34px] justify-center items-center rounded-full bg-gray-400 cursor-pointer dark:bg-yellow-300 dark:hover:bg-yellow-400"
+            ? " relative inline-flex h-[34px] w-[34px] justify-center items-center rounded-full bg-gray-900 text-gray-400 dark:text-black cursor-pointer dark:bg-yellow-500 dark:hover:bg-yellow-400 "
+            : "relative inline-flex h-[34px] w-[34px] justify-center items-center rounded-full bg-gray-400 cursor-pointer dark:bg-yellow-300 dark:hover:bg-yellow-400  "
         }
         onClick={() => setOpen(!open)}
       >
+        {!open && (
+          <span
+            className={`absolute top-0 flex w-auto h-auto px-1 text-xs font-semibold text-black uppercase bg-yellow-700 rounded-full left-6`}
+          >
+            {locale.substring(0, 2)}
+          </span>
+        )}
         <svg
           className="w-6 h-6"
           fill="currentColor"
@@ -38,22 +45,22 @@ function Languages() {
           <div
             className={
               locale === "en-US"
-                ? "inline-flex h-[22px] w-[22px] cursor-pointer justify-center items-center rounded-full bg-gray-900 text-gray-400 dark:text-black hover:text-black hover:bg-gray-600 dark:bg-yellow-500 dark:hover:bg-yellow-400 mx-3"
+                ? "inline-flex h-[22px] w-[22px] cursor-pointer justify-center items-center rounded-full bg-gray-900 text-gray-400 dark:text-black hover:text-black hover:bg-gray-600 dark:bg-yellow-300 dark:hover:bg-yellow-400 mx-3 ring-4 ring-gray-800 dark:ring-yellow-600 ring-offset-2 ring-offset-current"
                 : "inline-flex h-[22px] w-[22px] cursor-pointer justify-center items-center rounded-full bg-gray-400 hover:bg-gray-600 dark:bg-yellow-300 dark:hover:bg-yellow-500 mx-3"
             }
             onClick={() => changeLocale("en-US")}
           >
-            <span className="font-bold text-xs">EN</span>
+            <span className="text-xs font-bold">EN</span>
           </div>
           <div
             className={
               locale === "ar-EG"
-                ? "inline-flex h-[22px] w-[22px] cursor-pointer justify-center items-center rounded-full bg-gray-900 text-gray-400 dark:text-black hover:text-black hover:bg-gray-600 dark:bg-yellow-500 dark:hover:bg-yellow-400"
+                ? "inline-flex h-[22px] w-[22px] cursor-pointer justify-center items-center rounded-full bg-gray-900 text-gray-400 dark:text-black hover:text-black hover:bg-gray-600 dark:bg-yellow-300 dark:hover:bg-yellow-400 mx-3 ring-4 ring-gray-800 dark:ring-yellow-600 ring-offset-2 ring-offset-current"
                 : "inline-flex h-[22px] w-[22px] cursor-pointer justify-center items-center rounded-full bg-gray-400 hover:bg-gray-600 dark:bg-yellow-300 dark:hover:bg-yellow-400"
             }
             onClick={() => changeLocale("ar-EG")}
           >
-            <span className="font-bold text-xs">AR</span>
+            <span className="text-xs font-bold">AR</span>
           </div>
         </>
       )}
