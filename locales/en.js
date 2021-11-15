@@ -1,3 +1,3 @@
 module.exports = {
-  greeting: "Hi",
+  greeting: "Lo! the guidance is Allah's Guidance",
 };
